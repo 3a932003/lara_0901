@@ -24,10 +24,12 @@
         </tr>
         </thead>
         <tbody>
-        @foreach(range(1, 10) as $id)
+        <!-- $posts資料表取單一個* -->
+        @foreach($posts as $post)
             <tr>
-                <th scope="row" style="width: 50px">{{ $id }}</th>
-                <td>{{ '標題' . $id }}</td>
+                <!---->
+                <th scope="row" style="width: 50px">{{ $post->id }}</th>
+                <td>{{ $post->title }}</td>
                 <td style="width: 150px">
                     <button type="button" class="btn btn-primary btn-sm">編輯</button>
                     <button type="button" class="btn btn-danger btn-sm">刪除</button>

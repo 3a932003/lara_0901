@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class AdminPostsController extends Controller
 {
     public function index()
     {
-        return view('admin.posts.index');
+        //Post::orderBy('id', 'DESC')->get().var
+        $posts = Post::orderBy('id', 'DESC')->get();
+        //'posts'會跟admin.posts.index中的route('.posts.')一樣
+        //<a class="btn btn-success btn-sm" href="{{ route('admin.posts.create') }}">新增</a>
+        $data=[
+            'posts'=>$posts,
+        ];
+        return view('admin.posts.index',$data);
     }
 
     public function create()
