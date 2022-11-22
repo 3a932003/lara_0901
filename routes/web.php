@@ -29,8 +29,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('posts/{post}/edit', [AdminPostsController::class, 'edit'])->name("posts.edit");
     Route::patch('posts/{post}', [AdminPostsController::class, 'update'])->name("posts.update");
     Route::delete('posts/{post}', [AdminPostsController::class, 'destroy'])->name("posts.destroy");
-});
-/*Route::group(['prefix' => 'admin'], function (){
+});/*
+Route::group(['prefix' => 'admin'], function (){
     //進入後台管理介面的路由(1)
     Route::get('/',['as' => 'admin.home.index', 'uses' => 'App\Http\Controllers\AdminHomeController@index']);
     //後台列出所有貼文的路由(2)
