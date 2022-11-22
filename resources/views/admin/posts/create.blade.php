@@ -15,17 +15,22 @@
         </ul>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    <form>
+    <!--路由1從哪抓回來-->
+    <form action="{{route('admin.posts.store')}}" method="post"><!--1路徑 action 2屬性動詞 method:get那些-->
+        @method('post')
+        <!--csrf防止攻擊確認storage/framework/sessions有沒有相同密碼-->
+        @csrf
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">文章標題</label>
-            <input type="text" class="form-control" placeholder="請輸入文章標題">
+            <!--屬性跟資料表中的欄位一樣-->
+            <input id="title" name="title" type="text" class="form-control" placeholder="請輸入文章標題">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">文章內容</label>
-            <textarea class="form-control" rows="10" placeholder="請輸入文章內容"></textarea>
+            <textarea id="content" name="content" class="form-control" rows="10" placeholder="請輸入文章內容"></textarea>
         </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <a class="btn btn-primary btn-sm" href="#">儲存</a>
+            <button class="btn btn-primary btn-sm" type="submit">儲存</button>
         </div>
     </form>
 </div>
